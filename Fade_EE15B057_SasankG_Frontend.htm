@@ -1,0 +1,32 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript"> <!--
+		var x = ['ABC','DEF','GHI'];
+		var i = 0;
+		$(document).ready(function(){
+			$("#div1").hide(0);
+			$.fn.fadeInward1 = function() {
+				//alert("working1");
+				document.getElementById("div1").innerHTML = x[i];
+				if(i+1 != x.length) {
+					i = i+1;
+				}
+				else {
+					i=0;
+				}
+				$("#div1").hide(0).fadeIn();
+				setTimeout(function() {$.fn.fadeOutward1();},3000)
+			}
+			$.fn.fadeOutward1 = function() {
+				$("#div1").fadeOut(function() {$.fn.fadeInward1();});
+			}
+			$.fn.fadeInward1();
+		}); //-->
+	</script>
+</head>
+<body>
+	<div id="div1">
+	</div>
+</body>
+</html>

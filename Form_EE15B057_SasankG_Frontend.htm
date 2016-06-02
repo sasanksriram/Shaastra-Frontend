@@ -1,0 +1,123 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script> <!--
+	var validity=true;
+	function validate() {
+		validity=true;
+		if(document.myForm.firstName.value == "") {
+			document.getElementById('firstDiv').classList.add("has-error"); validity=false; document.getElementById('firstNames').style.display = "inline";
+		}
+		else {
+			document.getElementById('firstDiv').classList.remove("has-error"); document.getElementById('firstNames').style.display = "none";
+		}
+		if(document.myForm.lastName.value == "") {
+			document.getElementById('secondDiv').classList.add("has-error"); validity=false; document.getElementById('lastNames').style.display = "inline";
+		}
+		else {
+			document.getElementById('secondDiv').classList.remove("has-error"); document.getElementById('lastNames').style.display = "none";
+		}
+		var numb = document.myForm.phoneNumber.value;
+		if (isNaN(numb) || numb.length!=10) {
+			document.getElementById('thirdDiv').classList.add("has-error"); validity=false; document.getElementById('phoneNumbers').style.display = "inline";
+		}
+		else {
+			document.getElementById('thirdDiv').classList.remove("has-error"); document.getElementById('phoneNumbers').style.display = "none";
+		}
+		var emailadd = document.myForm.eMail.value;
+		if (emailadd.indexOf("@")!=emailadd.lastIndexOf("@") || (emailadd.lastIndexOf(".")-emailadd.indexOf("@"))<2 || emailadd.indexOf("@") == 0 || (emailadd.length-emailadd.lastIndexOf("."))<3) {
+			document.getElementById('fourthDiv').classList.add("has-error"); validity=false; document.getElementById('eMails').style.display = "inline";
+		}
+		else {
+			document.getElementById('fourthDiv').classList.remove("has-error"); document.getElementById('eMails').style.display = "none";
+		}
+		if(document.myForm.password.value.length < 6) {
+			document.getElementById('sixthDiv').classList.add("has-error"); validity=false; document.getElementById('passwords').style.display = "inline";
+		}
+		else {
+			document.getElementById('sixthDiv').classList.remove("has-error"); document.getElementById('passwords').style.display = "none";
+		}
+		if(document.myForm.retypePassword.value != document.myForm.password.value) {
+			document.getElementById('seventhDiv').classList.add("has-error"); validity=false; document.getElementById('retypePasswords').style.display = "inline";
+		}
+		else {
+			document.getElementById('seventhDiv').classList.remove("has-error"); document.getElementById('retypePasswords').style.display = "none";
+		}
+		if(validity==true) {
+			document.getElementById('showers').style.display = "none";
+			document.getElementById('hiders').style.display = "inline";
+		}
+	} //-->
+</script>
+<style>
+	* {
+		border-radius:0;
+	}
+	body {
+		margin-top:20px;
+	}
+	span {
+		display:none;
+		color:red;
+	}
+	.hiders {
+		display:none;
+	}
+</style>
+</head>
+<body>
+	<form id = "myForm" name="myForm" role="form">
+	<div id = "firstDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			First Name:
+		</label>
+		<input class="form-control inp" id="firstName" name="firstName" type="textbox" placeholder = "Enter your first name"><span id="firstNames">Please enter a value.</span>
+	</div>
+	<div id = "secondDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Last Name:
+		</label>
+		<input class="form-control inp" id="lastName" name="lastName" type="textbox" placeholder = "Enter your last name"><span id="lastNames">Please enter a value.</span>
+	</div>
+	<div id = "thirdDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Phone Number:
+		</label>
+		<input class="form-control inp" id="phoneNumber" name="phoneNumber" type="textbox" placeholder = "Enter your phone number"><span id="phoneNumbers">Please enter a valid number.</span>
+	</div>
+	<div id = "fourthDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Email:
+		</label>
+		<input class="form-control inp" id="eMail" name="eMail" type="textbox"  placeholder = "Enter your Email ID"><span id="eMails">Please enter a valid Email ID.</span>
+	</div>
+	<div id = "fifthDiv" class = "form-group col-sm-12">
+		<label class = "control-label">
+			State:	
+		</label>
+		<select class="form-control inp" id="state" name="state">
+			<option value="State1">AA 1</option>
+			<option value="State2">BB 2</option>
+			<option value="State3">CC 3</option>
+			<option value="State4">DD 4</option>
+			<option value="State5">EE 5</option>
+			<option value="State6">FF 6</option>
+		</select>
+	</div>
+	<div id = "sixthDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Password:
+		</label>
+		<input class="form-control inp" id="password" name="password" type="password"  placeholder = "Enter a password"><span id="passwords">Password must contain atleast 6 characters.</span>
+	</div>
+	<div id = "seventhDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Re-enter password:
+		</label>
+		<input class="form-control inp" id="retypePassword" name="retypePassword" type="password"  placeholder = "Re-enter the password"><span id="retypePasswords">Passwords do not match.</span>
+	</div>
+	<div class = "form-group col-sm-12" id="showers"><input class="form-control btn-default" id="submit" type="button" value="Submit" onclick="validate()"/></div>
+	<div class = "form-group col-sm-12 hiders" id="hiders"><input class="form-control btn-success" disabled id="submitted" type="button" value="Submitted Successfully"/></div>
+	</form>
+</body>
+</html>
